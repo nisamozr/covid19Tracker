@@ -6,6 +6,7 @@ import Table from "./component/Table"
 import './App.css';
 import Map from "./component/Map";
 import { sortData } from './component/Util'
+import "leaflet/dist/leaflet.css"
 
 
 
@@ -14,6 +15,8 @@ function App() {
   const [country, setCountry] = useState('Worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({lat: 34.80745, lng: -40.4796})
+  const [mapZoom, setMapZoom] = useState(3)
 
   // https://disease.sh/v3/covid-19/countries
   useEffect(() => {
@@ -87,7 +90,7 @@ function App() {
 
         </div>
         {/* map */}
-        <Map />
+        <Map  center={mapCenter} zoom={mapZoom}/>
 
 
 
