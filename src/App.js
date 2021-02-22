@@ -15,7 +15,7 @@ function App() {
   const [country, setCountry] = useState('Worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState({lat: 34.80745, lng: -40.4796})
+  const [mapCenter, setMapCenter] = useState({lat: 34.80745, lng: -40.4796});
   const [mapZoom, setMapZoom] = useState(3)
 
   // https://disease.sh/v3/covid-19/countries
@@ -56,11 +56,15 @@ function App() {
       setCountry(countryCode)
 
       setCountryInfo(data)
+      setMapCenter([data.countryInfo.lat,data.countryInfo.long])
+      setMapZoom(4)
+  
 
 
     })
   }
-  console.log(countryInfo)
+  console.log(mapCenter)
+ 
   return (
     <div className="App">
       <div className="app_left">
